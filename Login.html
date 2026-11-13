@@ -1,26 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hospital LifeCare - Login</title>
     <link rel="stylesheet" href="login.css">
-
 </head>
 <body>
-    <div id="Painel-login" >
-        <h2>Painel de login</h2>
-        <form action="" id="login-form">
-            <select name="" id="selecionar">
-                <option value="Doutor">Doutor</option>
-                <option value="Enfermeiro">Enfermeiro</option>
-                <option value="Recepcionista">Recepcionista</option>
-            </select>
-            <input id="usuario" type="text"  placeholder="Nome do usuário" required>
-            <input id="senha" type="password" placeholder="Senha" required>
-            <button type="submit">Submit</button>
-        </form>
+
+    <!-- Lado Esquerdo: Banner institucional -->
+    <div class="lado-esquerdo">
+        <div class="topo-marca">
+            <div class="icone-hospital">🏥</div>
+            <div>
+                <strong>LifeCare</strong>
+                <p>Prontuário eletrônico</p>
+            </div>
+        </div>
+
+        <div class="texto-principal">
+            <span class="etiqueta">CUIDADO CONECTADO</span>
+            <h1>A informação certa, no momento em que cada vida precisa.</h1>
+            <p>Histórico clínico, exames e planos de tratamento reunidos em um ambiente seguro e simples para todos os turnos.</p>
+        </div>
     </div>
+
+    <!-- Lado Direito: Caixa de Login -->
+    <div class="lado-direito">
+        <div id="Painel-login">
+            
+            <!-- Ícone de Cadeado -->
+            <div class="icon-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+            </div>
+
+            <h1>Bem-vindo de volta</h1>
+            <p class="subtitulo">Entre com suas credenciais institucionais.</p>
+            
+            <form action="" id="login-form">
+                <!-- Seletor de cargo mantido intacto -->
+                <label for="selecionar">Selecione o cargo</label>
+                <select name="" id="selecionar">
+                    <option value="Doutor">Doutor</option>
+                    <option value="Enfermeiro">Enfermeiro</option>
+                    <option value="Recepcionista">Recepcionista</option>
+                </select>
+
+                <!-- Input de usuário mantido intacto -->
+                <label for="usuario">Nome do usuário</label>
+                <input id="usuario" type="text" placeholder="Nome do usuário" required>
+
+                <!-- Input de senha mantido intacto -->
+                <label for="senha">Senha</label>
+                <input id="senha" type="password" placeholder="Senha" required>
+
+                <!-- Botão de Envio -->
+                <button type="submit">Entrar no sistema</button>
+            </form>
+
+            <p class="aviso">Ambiente exclusivo para profissionais autorizados.</p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
