@@ -1,17 +1,29 @@
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
 .grid{
+    
     display: grid;
-    grid-template-rows: 80px 100%;
-    grid-template-columns: 160px 100%;
-    border: 1px solid blue;
+    grid-template-rows: 80px 1fr;
+    grid-template-columns: 160px 1fr;
     height: 100vh;
-    width: 100dvw;
+    width: 100%;
+    
+
 }
 .caixa{
-    border: 2px solid red;
+    
 }
  #menu{
     grid-area: 2/1/3/2;
     gap: 5px;
+    min-width: none;
+    overflow-y: auto;
 }
 #menu h2, span{
 margin: 0;
@@ -39,6 +51,7 @@ header{
     display: flex;
     flex-direction: row;
     align-items:center ;
+    width: 100vw;
     
     
 }
@@ -89,5 +102,10 @@ button:hover{
 }
 
 main{
-    grid-area: 2/2/2/3
+    grid-area: 2/2/2/2;
+    min-width: none;
+    min-height: none;
+    overflow: auto;
+    
+
 }
