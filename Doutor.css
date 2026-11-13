@@ -1,0 +1,93 @@
+.grid{
+    display: grid;
+    grid-template-rows: 80px 100%;
+    grid-template-columns: 160px 100%;
+    border: 1px solid blue;
+    height: 100vh;
+    width: 100dvw;
+}
+.caixa{
+    border: 2px solid red;
+}
+ #menu{
+    grid-area: 2/1/3/2;
+    gap: 5px;
+}
+#menu h2, span{
+margin: 0;
+padding: 0;
+
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 5px;
+}
+nav a:hover{
+    color: #0077B6;
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+header{
+    grid-area: 1/1/2/3;
+    display: flex;
+    flex-direction: row;
+    align-items:center ;
+    
+    
+}
+
+.logo img{
+    width: 100px;
+    height: 80px;
+}
+#logo-texto{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+button{
+    border: none;
+    cursor: pointer;
+    
+    
+    
+}
+button i{
+    font-size: 20px;
+    padding: 15px;
+}
+#Novo{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #0077B6;
+    color: #EAF6FB;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 17px;
+    height: 40px;
+}
+#Novo i {
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+button:hover{
+    ;
+}
+#buttons{
+    margin-left: auto;
+}
+
+main{
+    grid-area: 2/2/2/3
+}

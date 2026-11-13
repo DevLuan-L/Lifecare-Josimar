@@ -1,0 +1,33 @@
+body{
+    background-color:#0077B6 ;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    
+}
+#Painel-login{
+    background-color: white;
+    padding:30px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.274);
+}
+input,select,button{
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0px;
+    border-radius: 15px ;
+    border: 1px solid black;
+}
+button{
+    background-color: #0077B6;
+    color: white;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #039ff3;
+}
