@@ -5,7 +5,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: rgba(170, 215, 251, 0.96);
+    background-color: #EAF6FB;
 }
 .grid{
     
@@ -125,6 +125,5 @@ main{
     min-width: none;
     min-height: none;
     overflow: auto;
-    
-
 }
+
