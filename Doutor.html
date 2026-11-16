@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="Doutor.css">
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link href="/your-path-to-uicons/css/uicons-thin-straight.css" rel="stylesheet">
 </head>
 <body>
     <div class="grid">
@@ -46,17 +47,98 @@
                     <div class="stauts"></div>
                     <div class="stauts"></div>
                 </div>
-                <div>
-                    <section>
-                        <div class="topo">
-                            <div>
-                                <H3>Pacientes</H3>
-                                <p>3 registros encontrados</p>
-                            </div>
-                            <button><i class="fi fi-rr-plus"></i></button>
-                        </div>
+            <div class="main-container">
 
-                    </section>
+    <!-- Lista de pacientes -->
+    <div class="pacientes">
+        <h3>Pacientes</h3>
+        <p>3 registros encontrados</p>
+
+        <div class="paciente">
+            <div class="avatar">MD</div>
+            <div>
+                <strong>Maria de Lourdes Silva</strong>
+                <p>LC-2026-04821 · Leito 204</p>
+            </div>
+        </div>
+
+        <div class="paciente">
+            <div class="avatar">JP</div>
+            <div>
+                <strong>João Pedro Ferreira</strong>
+                <p>LC-2026-04798 · Leito 08</p>
+            </div>
+        </div>
+
+        <div class="paciente">
+            <div class="avatar">CN</div>
+            <div>
+                <strong>Camila Nunes Ribeiro</strong>
+                <p>LC-2026-04672 · Em acompanhamento</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Informações do paciente -->
+    <section class="conteudo">
+
+        <header class="cabecalho-paciente">
+            <div>
+                <h2>Maria de Lourdes Silva</h2>
+                <p>68 anos · Unimed Goiânia</p>
+            </div>
+
+            <div class="acoes">
+                <button>+ Observação</button>
+                <button>Atualizar plano</button>
+            </div>
+        </header>
+
+        <div class="alerta">
+            <strong>ATENÇÃO CLÍNICA</strong>
+            <p>Alergia: Dipirona, Látex. Há resultado crítico em exames.</p>
+        </div>
+
+        <nav class="abas">
+            <span>Resumo clínico</span>
+            <span>Histórico (3)</span>
+            <span>Exames (2)</span>
+        </nav>
+
+        <!-- Cartões de informações -->
+        <div class="dashboard">
+
+            <article class="card">
+                <h3><i class="fi fi-rr-ballot"></i>Plano de tratamento</h3>
+                <p>
+                    Manter antibioticoterapia venosa, fisioterapia
+                    respiratória duas vezes ao dia e controle de
+                    saturação a cada 4 horas.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3> <i class="fi fi-rr-hospital"></i> Condições ativas</h3>
+                <p>Pneumonia comunitária</p>
+                <p>Hipertensão arterial</p>
+            </article>
+
+            <article class="card">
+                <h3> <i class="fi fi-rr-document-signed"></i> Medicações em uso</h3>
+                <p>Ceftriaxona 1 g</p>
+                <p>Losartana 50 mg</p>
+            </article>
+
+            <article class="card">
+                <h3> <i class="fi fi-rr-user"></i>Dados do atendimento</h3>
+                <p>Nascimento: 11 de abr. de 1958</p>
+                <p>Tipo sanguíneo: O+</p>
+            </article>
+
+        </div>
+
+    </section>
+
 
 
                 </div>

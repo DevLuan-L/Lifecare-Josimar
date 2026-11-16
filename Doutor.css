@@ -5,7 +5,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #EAF6FB;
+    
 }
 .grid{
     
@@ -120,10 +120,205 @@ button:hover{
 
 }
 
+
+
+
+
 main{
     grid-area: 2/2/2/2;
     min-width: none;
     min-height: none;
     overflow: auto;
 }
+.main-container {
+    display: grid;
 
+    grid-template-columns: 300px 1fr;
+
+    border-radius: 20px;
+
+    min-height: 550px;
+}
+
+
+
+
+
+.pacientes {
+    padding: 20px;
+}
+
+.pacientes h3 {
+    margin-bottom: 5px;
+}
+
+.pacientes > p {
+    color: #4A5568;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.paciente {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px;
+
+    margin-bottom: 8px;
+}
+
+.avatar {
+    color: #0085c7;
+
+    min-width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+
+    display: grid;
+    place-items: center;
+
+    font-weight: bold;
+}
+
+.paciente p {
+    font-size: 11px;
+    color: #64748b;
+
+    margin-top: 5px;
+}
+
+
+
+
+.conteudo {
+    padding: 22px;
+
+    min-width: 0;
+}
+
+.cabecalho-paciente {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;    
+    margin-bottom: 20px;
+    max-width: 850px;
+}
+
+.cabecalho-paciente p {
+    color: #64748b;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    border: 1px solid #dce6ec;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+}
+
+.alerta {
+    background: #fff0f1;
+    border: 1px solid #ffc5ca;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    color: #f04452;
+
+    margin-bottom: 20px;
+}
+
+
+
+
+.abas {
+    display: flex;
+    gap: 25px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #e5edf2;
+
+    margin-bottom: 22px;
+}
+
+.abas span {
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* Cartões */
+
+.dashboard {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+   
+}
+
+.card {
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    min-height: 150px;
+}
+
+.card h3 {
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+
+.card p {
+    margin-bottom: 12px;
+    color: #475569;
+    font-size: 14px;
+}
+
+.card i{
+    padding: 5px;
+    color: rgb(0, 255, 157);
+}
+@media (max-width: 900px) {
+    .main-container {
+        grid-template-columns: 220px 1fr;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .pacientes {
+        border-right: none;
+        border-bottom: 1px solid #e5edf2;
+    }
+
+    .cabecalho-paciente {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
