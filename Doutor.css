@@ -162,7 +162,7 @@ main {
 
 .main-container {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 300px 1fr;
     border-radius: 20px;
     min-height: 550px;
     box-shadow: none;
@@ -170,9 +170,13 @@ main {
     overflow: hidden;
 }
 
+a{
+    text-decoration:none;
+}
 .pacientes {
     padding: 20px;
     border-bottom: 1px solid #e5edf2;
+    
 }
 
 .pacientes h3 {
@@ -193,6 +197,7 @@ main {
     margin-bottom: 3px;
     padding: 12px;
     border-radius: 12px;
+    color: #334e68;
 }
 
 .paciente:hover{
