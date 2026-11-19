@@ -58,7 +58,13 @@ nav a:hover {
 
 /* CABEÇALHO */
 
-header {
+.grid > header {
+    grid-area: 1/1/2/3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+} {
     grid-area: 1/1/2/3;
     display: flex;
     flex-direction: row;
@@ -111,7 +117,7 @@ button i {
     padding: 5px;
 }
 
-#Novo {
+#novo {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -151,13 +157,20 @@ main {
 
 /* INDICADORES */
 
-.grid-main > div:nth-child(2) {
+.status-area {
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 14px;
 }
 
+.status-area i{
+    padding: 8px;
+    color: #0077B6;
+}
+#alert {
+    color: #ff334e;
+}
 /* PAINEL DE PACIENTES */
 
 .main-container {
@@ -367,4 +380,108 @@ a{
     .conteudo {
         padding: 15px;
     }
+}
+/* aparencia do modal*/
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 50, 70, 0.45);
+    backdrop-filter: blur(5px);
+
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+.modal-conteudo {
+    background: white;
+    width: 500px;
+    max-width: 90%;
+    max-height: 90%;
+    padding: 30px;
+    border-radius: 20px;
+
+    position: relative;
+}
+
+.modal-conteudo h2 {
+    margin-top: 0;
+}
+
+.modal-conteudo p {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.modal-conteudo label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #64748b;
+}
+
+.modal-conteudo input,
+.modal-conteudo select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dbe5ef;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    box-sizing: border-box;
+}
+
+.campos-duplos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 15px;
+}
+
+.fechar {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    border: none;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.botoes-modal {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.botoes-modal button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.botoes-modal button[type="submit"] {
+    background: #0785c1;
+    color: white;
+}
+
+.botoes-modal button[type="button"] {
+    background: white;
+    color: #64748b;
+}
+#remover-paciente {
+    background-color: #fff0f2;
+    color: #e63950;
+    border: 1px solid #ffb9c1;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#remover-paciente:hover {
+    background-color: #ff334e;
+    color: white;
 }

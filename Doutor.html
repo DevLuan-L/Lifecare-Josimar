@@ -30,7 +30,7 @@
                 <div id="buttons">
                     <button class="tema"><i class="fi fi-rr-moon"></i></button>
                     <button class="tema"><i class="fi fi-rr-bell"></i></button>
-                    <button id="Novo"><i class="fi fi-rr-plus"></i> Novo Paciente</button>
+                    <button id="novo"><i class="fi fi-rr-plus"></i> Novo Paciente</button>
                 </div>
 
             
@@ -42,9 +42,9 @@
                     <h1>Olá,Dra</h1>
                     <p>Informações atualizadas para o atendimento deste turno</p>
                 </div>
-                <div>
+                <div class="status-area">
                     <div class="stauts">
-                        <h3> <i class="fi fi-rs-patient"></i> 3</h3>
+                        <h3> <i class="fi fi-rr-user"></i> 3</h3>
                         <span>Em acompanhamento</span>
                     </div>
                     <div class="stauts">
@@ -52,7 +52,7 @@
                         <span>Exames pendentes</span>
                     </div>
                     <div class="stauts">
-                        <h3> <i class="fi fi-rr-exclamation"></i> 1</h3>
+                        <h3> <i id="alert" class="fi fi-rr-exclamation"></i> 1</h3>
                         <span>Alertas críticos</span>
                     </div>
                 </div>
@@ -60,91 +60,23 @@
 
     <!-- Lista de pacientes -->
     <div class="pacientes">
-        <h3>Pacientes</h3>
-        <p>3 registros encontrados</p>
 
-        <div class="paciente">
-            <div class="avatar">MD</div>
-            <div>
-                <strong>Maria de Lourdes Silva</strong>
-                <p>LC-2026-04821 · Leito 204</p>
-            </div>
-        </div>
+    <h3>Pacientes</h3>
 
-        <div class="paciente">
-            <div class="avatar">JP</div>
-            <div>
-                <strong>João Pedro Ferreira</strong>
-                <p>LC-2026-04798 · Leito 08</p>
-            </div>
-        </div>
+    <p id="quantidade-pacientes">
+        3 registros encontrados
+    </p>
 
-        <div class="paciente">
-            <div class="avatar">CN</div>
-            <div>
-                <strong>Camila Nunes Ribeiro</strong>
-                <p>LC-2026-04672 · Em acompanhamento</p>
-            </div>
-        </div>
+    <div id="lista-pacientes">
+
     </div>
 
+</div>
+
     <!-- Informações do paciente -->
-    <section class="conteudo">
+    <section class="conteudo" id="conteudo-paciente">
 
-        <header class="cabecalho-paciente">
-            <div>
-                <h2>Maria de Lourdes Silva</h2>
-                <p>68 anos · Unimed Goiânia</p>
-            </div>
-
-            <div class="acoes">
-                <button>+ Observação</button>
-                <button>Atualizar plano</button>
-            </div>
-        </header>
-
-        <div class="alerta">
-            <strong>ATENÇÃO CLÍNICA</strong>
-            <p>Alergia: Dipirona, Látex. Há resultado crítico em exames.</p>
-        </div>
-
-        <nav class="abas">
-            <span>Resumo clínico</span>
-            <span>Histórico (3)</span>
-            <span>Exames (2)</span>
-        </nav>
-
-        <!-- Cartões de informações -->
-        <div class="dashboard">
-
-            <article class="card">
-                <h3><i class="fi fi-rr-ballot"></i>Plano de tratamento</h3>
-                <p>
-                    Manter antibioticoterapia venosa, fisioterapia
-                    respiratória duas vezes ao dia e controle de
-                    saturação a cada 4 horas.
-                </p>
-            </article>
-
-            <article class="card">
-                <h3> <i class="fi fi-rr-hospital"></i> Condições ativas</h3>
-                <p>Pneumonia comunitária</p>
-                <p>Hipertensão arterial</p>
-            </article>
-
-            <article class="card">
-                <h3> <i class="fi fi-rr-document-signed"></i> Medicações em uso</h3>
-                <p>Ceftriaxona 1 g</p>
-                <p>Losartana 50 mg</p>
-            </article>
-
-            <article class="card">
-                <h3> <i class="fi fi-rr-user"></i>Dados do atendimento</h3>
-                <p>Nascimento: 11 de abr. de 1958</p>
-                <p>Tipo sanguíneo: O+</p>
-            </article>
-
-        </div>
+        
 
     </section>
 
@@ -152,7 +84,96 @@
 
                 </div>
             </div>
-        </main>
+            <!-- Fundo escuro e modal -->
+<div id="modal-paciente" class="modal">
+
+    <div class="modal-conteudo">
+
+        <button type="button" id="fechar-modal" class="fechar">
+            
+        </button>
+
+        <h2>Registrar novo paciente</h2>
+
+        <p>
+            Os dados serão incluídos no prontuário digital
+            e ficarão disponíveis para a equipe autorizada.
+        </p>
+
+        <form id="form-paciente">
+
+            <label>Nome completo *</label>
+            <input type="text" id="nome" placeholder="Nome do paciente" required>
+
+            <div class="campos-duplos">
+
+                <div>
+                    <label>Data de nascimento *</label>
+                    <input type="date" id="nascimento" required>
+                </div>
+
+                <div>
+                    <label>CPF</label>
+                    <input type="text" id="cpf" placeholder="000.000.000-00">
+                </div>
+
+                <div>
+                    <label>Sexo</label>
+                    <select id="sexo">
+                        <option>Não informado</option>
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                        <option>Outro</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Tipo sanguíneo</label>
+                    <select id="sangue">
+                        <option>Não informado</option>
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>AB+</option>
+                        <option>AB-</option>
+                        <option>O+</option>
+                        <option>O-</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Telefone</label>
+                    <input type="tel" id="telefone" placeholder="(00) 00000-0000">
+                </div>
+
+                <div>
+                    <label>Convênio</label>
+                    <input type="text" id="convenio" placeholder="Particular ou convênio">
+                </div>
+
+                <div>
+                    <label>Ala / Leito</label>
+                    <input type="text" id="leito" placeholder="Ex.: Ala B - Leito 204">
+                </div>
+
+                <div>
+                    <label>Alergia conhecida</label>
+                    <input type="text" id="alergia" placeholder="Ex.: Dipirona">
+                </div>
+
+            </div>
+
+            <div class="botoes-modal">
+                <button type="button" id="cancelar">Cancelar</button>
+                <button type="submit">Registrar paciente</button>
+            </div>
+
+        </form>
+
     </div>
+</div>
+        </main>
+    <script src="main.js"></script>
 </body>
 </html>
