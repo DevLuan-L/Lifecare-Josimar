@@ -1,118 +1,245 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LifeCare - Arquivo médico</title>
+
     <link rel="stylesheet" href="Doutor.css">
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
-    <link href="/your-path-to-uicons/css/uicons-thin-straight.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="grid">
-        <div class="caixa" id="menu"> 
+
+        <div class="caixa" id="menu">
             <nav>
                 <a href="Doutor.html"><i class="fi fi-rr-users"></i>Pacientes</a>
                 <a href="Plantão.html"><i class="fi fi-rr-stethoscope"></i>Meu plantão</a>
                 <a href="Exames.html"><i class="fi fi-rr-flask"></i>Exames pendentes</a>
-                <a href="Arquivo.html"><i class="fi fi-rr-box"></i>Arquivo médico</a>
+                <a href="arquivo.html"><i class="fi fi-rr-box"></i>Arquivo médico</a>
             </nav>
-
         </div>
+
         <header class="caixa">
             <div class="logo">
-                <img src="imagens/logo-removebg-preview.png" alt="logo-lifecare">
-                 </div>
-                <div id="logo-texto">
-                    <h2> Life care</h2>
-                    <span>Cuidado bla bla bla</span>
-                </div>
-                <div id="buttons">
-                    <button class="tema"><i class="fi fi-rr-moon"></i></button>
-                    <button class="tema"><i class="fi fi-rr-bell"></i></button>
-                    <button id="Novo"><i class="fi fi-rr-plus"></i> Novo Paciente</button>
-                </div>
+                <img src="imagens/logo-removebg-preview.png" alt="Logo LifeCare">
+            </div>
 
-            
+            <div id="logo-texto">
+                <h2>LifeCare</h2>
+                <span>Prontuário eletrônico</span>
+            </div>
         </header>
+
         <main class="caixa">
             <div class="grid-main">
+
                 <div>
-                    <span>Visão assistencial</span>
-                    <h1>Olá,Dra</h1>
-                    <p>Informações atualizadas para o atendimento deste turno</p>
+                    <span>REGISTROS</span>
+                    <h1>Arquivo médico</h1>
+                    <p>Consulte os prontuários dos pacientes arquivados.</p>
                 </div>
-                <div>
-                    <div class="stauts"></div>
-                    <div class="stauts"></div>
-                    <div class="stauts"></div>
-                </div>
-            <div class="main-container">
 
-    <!-- Lista de pacientes -->
-    <div class="pacientes">
-        <h3>Arquivo médico</h3>
-        <p>1 registros encontrados</p>
+                <div class="main-container">
 
-        <div class="paciente">
-            <div class="avatar">AC</div>
-            <div>
-                <strong>Antônio Carlos Moraes</strong>
-                <p>LC-2025-03144 · Arquivado</p>
-            </div>
-        </div>
-    </div>
+                    <div class="pacientes">
+                        <h3>Pacientes arquivados</h3>
+                        <p id="quantidade-arquivos">0 registros encontrados</p>
+                        <div id="lista-arquivos"></div>
+                    </div>
 
-    <!-- Informações do paciente -->
-    <section class="conteudo">
-
-        <header class="cabecalho-paciente">
-            <div>
-                <h2>Antônio Carlos Moraes</h2>
-                <p>LC-2025-03144 · 76 anos · IPASGO</p>
-            </div>
-        </header>
-        <nav class="abas">
-            <span>Resumo clínico</span>
-            <span>Histórico (1)</span>
-            <span>Exames (0)</span>
-        </nav>
-
-        <!-- Cartões de informações -->
-        <div class="dashboard">
-
-            <article class="card">
-                <h3><i class="fi fi-rr-ballot"></i>Plano de tratamento</h3>
-                <p>
-                    Tratamento concluído após reabilitação e alta da ortopedia.
-                </p>
-            </article>
-
-            <article class="card">
-                <h3> <i class="fi fi-rr-hospital"></i> Condições ativas</h3>
-                <p>Fratura de fêmur</p>
-            </article>
-
-            <article class="card">
-                <h3> <i class="fi fi-rr-document-signed"></i> Medicações em uso</h3>
-                <p>Nenhuma medicação ativa.</p>
-            </article>
-
-            <article class="card">
-                <h3> <i class="fi fi-rr-user"></i>Dados do atendimento</h3>
-                <p>Nascimento 29 de nov. de 1949</p>
-                <p>Tipo sanguíneo: AB+</p>
-            </article>
-
-        </div>
-
-    </section>
-
-
+                    <section class="conteudo" id="conteudo-arquivo">
+                        <h2>Selecione um paciente arquivado.</h2>
+                    </section>
 
                 </div>
             </div>
         </main>
     </div>
+
+    <script>
+        // Recuperar os pacientes que foram arquivados na página principal.
+
+        let arquivos = JSON.parse(localStorage.getItem("pacientesArquivados")) || [];
+
+        let lista = document.getElementById("lista-arquivos");
+        let conteudo = document.getElementById("conteudo-arquivo");
+        let quantidade = document.getElementById("quantidade-arquivos");
+
+        let pacienteSelecionado = arquivos.length > 0 ? arquivos[0] : null;
+
+
+        // Mostrar a lista de pacientes arquivados.
+
+        function mostrarArquivos() {
+
+            lista.innerHTML = "";
+
+            quantidade.textContent = arquivos.length + " registros encontrados";
+
+            if (arquivos.length === 0) {
+                lista.textContent = "Nenhum paciente arquivado.";
+                conteudo.innerHTML = "<h2>Nenhum prontuário arquivado.</h2>";
+                return;
+            }
+
+            for (let i = 0; i < arquivos.length; i++) {
+
+                let paciente = arquivos[i];
+
+                let partes = paciente.nome.trim().split(" ");
+                let iniciais = partes[0][0] + partes[partes.length - 1][0];
+
+                let item = document.createElement("div");
+                item.classList.add("paciente");
+
+                let avatar = document.createElement("div");
+                avatar.classList.add("avatar");
+                avatar.textContent = iniciais.toUpperCase();
+
+                let informacoes = document.createElement("div");
+
+                let nome = document.createElement("strong");
+                nome.textContent = paciente.nome;
+
+                let status = document.createElement("p");
+                status.textContent = "Prontuário arquivado";
+
+                informacoes.appendChild(nome);
+                informacoes.appendChild(status);
+
+                item.appendChild(avatar);
+                item.appendChild(informacoes);
+
+                item.addEventListener("click", function() {
+                    pacienteSelecionado = paciente;
+                    mostrarArquivos();
+                    mostrarProntuarioArquivado();
+                });
+
+                if (paciente === pacienteSelecionado) {
+                    item.classList.add("selecionado");
+                }
+
+                lista.appendChild(item);
+            }
+
+            mostrarProntuarioArquivado();
+        }
+
+
+        // Mostrar os dados do paciente selecionado.
+
+        function mostrarProntuarioArquivado() {
+
+            if (pacienteSelecionado === null) {
+                conteudo.innerHTML = "<h2>Nenhum prontuário selecionado.</h2>";
+                return;
+            }
+
+            let paciente = pacienteSelecionado;
+
+            conteudo.innerHTML = `
+                <header class="cabecalho-paciente">
+                    <div>
+                        <h2 id="nome-arquivado"></h2>
+                        <p id="convenio-arquivado"></p>
+                    </div>
+                    <span>PRONTUÁRIO ARQUIVADO</span>
+                </header>
+
+                <div class="alerta">
+                    <strong>
+                        <i class="fi fi-rr-exclamation"></i>
+                        ATENÇÃO CLÍNICA
+                    </strong>
+                    <p id="alergia-arquivado"></p>
+                </div>
+
+                <nav class="abas">
+                    <span>Resumo clínico</span>
+                    <span>Histórico</span>
+                    <span>Exames</span>
+                </nav>
+
+                <div class="dashboard">
+
+                    <article class="card">
+                        <h3><i class="fi fi-rr-ballot"></i>Plano de tratamento</h3>
+                        <p id="plano-arquivado"></p>
+                    </article>
+
+                    <article class="card">
+                        <h3><i class="fi fi-rr-hospital"></i>Condições ativas</h3>
+                        <div id="condicoes-arquivadas"></div>
+                    </article>
+
+                    <article class="card">
+                        <h3><i class="fi fi-rr-document-signed"></i>Medicações em uso</h3>
+                        <div id="medicacoes-arquivadas"></div>
+                    </article>
+
+                    <article class="card">
+                        <h3><i class="fi fi-rr-user"></i>Dados do atendimento</h3>
+                        <p id="nascimento-arquivado"></p>
+                        <p id="cpf-arquivado"></p>
+                        <p id="sexo-arquivado"></p>
+                        <p id="telefone-arquivado"></p>
+                        <p id="sangue-arquivado"></p>
+                        <p id="leito-arquivado"></p>
+                    </article>
+
+                </div>
+            `;
+
+            document.getElementById("nome-arquivado").textContent = paciente.nome;
+            document.getElementById("convenio-arquivado").textContent =
+                paciente.convenio || "Convênio não informado";
+            document.getElementById("alergia-arquivado").textContent =
+                paciente.alergia || "Nenhuma alergia registrada.";
+            document.getElementById("plano-arquivado").textContent =
+                paciente.plano || "Nenhum plano registrado.";
+
+            document.getElementById("nascimento-arquivado").textContent =
+                "Nascimento: " + (paciente.nascimento || "Não informado");
+            document.getElementById("cpf-arquivado").textContent =
+                "CPF: " + (paciente.cpf || "Não informado");
+            document.getElementById("sexo-arquivado").textContent =
+                "Sexo: " + (paciente.sexo || "Não informado");
+            document.getElementById("telefone-arquivado").textContent =
+                "Telefone: " + (paciente.telefone || "Não informado");
+            document.getElementById("sangue-arquivado").textContent =
+                "Tipo sanguíneo: " + (paciente.sangue || "Não informado");
+            document.getElementById("leito-arquivado").textContent =
+                "Leito: " + (paciente.leito || "Não informado");
+
+            let condicoes = document.getElementById("condicoes-arquivadas");
+
+            if (!paciente.condicoes || paciente.condicoes.length === 0) {
+                condicoes.textContent = "Nenhuma condição registrada.";
+            } else {
+                for (let i = 0; i < paciente.condicoes.length; i++) {
+                    let p = document.createElement("p");
+                    p.textContent = paciente.condicoes[i];
+                    condicoes.appendChild(p);
+                }
+            }
+
+            let medicacoes = document.getElementById("medicacoes-arquivadas");
+
+            if (!paciente.medicacoes || paciente.medicacoes.length === 0) {
+                medicacoes.textContent = "Nenhuma medicação registrada.";
+            } else {
+                for (let i = 0; i < paciente.medicacoes.length; i++) {
+                    let p = document.createElement("p");
+                    p.textContent = paciente.medicacoes[i];
+                    medicacoes.appendChild(p);
+                }
+            }
+        }
+
+        mostrarArquivos();
+    </script>
 </body>
 </html>
